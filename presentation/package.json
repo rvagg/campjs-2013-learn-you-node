@@ -1,0 +1,7 @@
+{
+  "name": "campjs-2013-learn-you-node",
+  "version": "0.0.0",
+  "dependencies": {
+    "blorg": "~0.2.0"
+  }
+}

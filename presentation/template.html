@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn you</title>
+    <link rel="stylesheet" type="text/css" href="style/markbase.css">
+    <link rel="stylesheet" type="text/css" href="style/markthemes.css">
+    <link rel="stylesheet" type="text/css" href="style/highlight.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!--
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    -->
+  </head>
+  <body class="coverflow rv">
+
+    <div id="main">
+      <header>
+        Learn You The Node.js <i>For Much Win</i>
+      </header>
+
+      <article>
+
+      {% for slide in slides.root %}
+        <section>
+          {{ slide | raw }}
+        </section>
+      {% endfor %}
+
+      </article>
+
+      <footer>
+        <img src="img/nodelogo.png">
+      </footer>
+
+    </div>
+
+    <script src="js/bespoke.min.js"></script>
+    <script src="js/bespoke-hash.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</script>
+</body>

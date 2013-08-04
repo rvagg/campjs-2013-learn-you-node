@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn you</title>
+    <link rel="stylesheet" type="text/css" href="style/markbase.css">
+    <link rel="stylesheet" type="text/css" href="style/markthemes.css">
+    <link rel="stylesheet" type="text/css" href="style/highlight.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!--
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    -->
+  </head>
+  <body class="coverflow rv">
+
+    <div id="main">
+      <header>
+        Learn You The Node.js <i>For Much Win</i>
+      </header>
+
+      <article>
+
+      
+        <section>
+          <h1>Learn You The Node.js<br><em>For Much Win</em></h1>
+
+        </section>
+      
+        <section>
+          <h2>What is Node.js?</h2>
+<h3>A simple platform for writing</h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&hellip; network-centric</h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&hellip; JavaScript applications</h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&hellip; using event-driven, non-blocking I/O</h3>
+
+        </section>
+      
+        <section>
+          <h2>For writing applications</h2>
+<p>Target platforms:</p>
+<ul>
+<li>OSX</li>
+<li>Linux</li>
+<li>Solaris</li>
+<li>Windows</li>
+</ul>
+<p>Also: *BSD, Linux variants &amp; ARM: Raspberry Pi, BeagleBone, Kindle, webOS</p>
+<p><em>And Browserify</em></p>
+
+        </section>
+      
+        <section>
+          <h2>JavaScript</h2>
+<p>V8 (Chrome)</p>
+<p>Single runtime target</p>
+<p>Many familiar extras:</p>
+<div class="highlight"><pre><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">()</span>  <span class="c1">// info, warn, error, dir,</span>
+               <span class="c1">// time, timeEnd, trace, assert</span>
+
+<span class="nx">setTimeout</span><span class="p">()</span>   <span class="c1">// setInterval, setImmediate</span>
+
+<span class="nx">JSON</span>           <span class="c1">// of course</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h2>Network-centric</h2>
+<p>Node core:</p>
+<ul>
+<li>&frac14; platform</li>
+<li>&frac14; dev support</li>
+<li>&frac14; abstractions, OS, libs &amp; filesystem</li>
+<li><strong>&frac14; networking</strong></li>
+</ul>
+<p>TCP, UDP, HTTP, HTTPS, TLS, SSL, URLs, query strings</p>
+
+        </section>
+      
+        <section>
+          <h2>Event-driven, non-blocking I/O</h2>
+<p>Reactionary: callbacks &amp; events everywhere. <strong>Call Me Maybe</strong>.</p>
+<div class="highlight"><pre><span class="c1">// callbacks</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// events</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">stream</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;someone connected!&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+<p>First-class functions FTW!</p>
+
+        </section>
+      
+        <section>
+          <h2>Event-driven, non-blocking I/O</h2>
+<p><strong>Scalability</strong>: kernel <b><code>epoll</code></b> or <b><code>select</code></b> for socket I/O</p>
+<p><strong>Concurrent</strong>: worker threads for file I/O</p>
+<p>JavaScript thread only needs to block for JavaScript!</p>
+<p><em>Unless you tell it otherwise</em></p>
+
+        </section>
+      
+        <section>
+          <h2>Event-driven, non-blocking I/O</h2>
+<div class="highlight"><pre><span class="c1">// Synchronous (avoid this)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Reading file...&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="c1">// Asynchronous (embrace this)</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Reading file...&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <!-- Thanks to Bert Belder for the inspiration behind this baby -->
+<!-- http://www.youtube.com/watch?v=nGn60vDSxQ4 -->
+
+<table cellpadding=0 cellspacing=0 style="border-collapse: collapse; margin: 20px auto;">
+  <tr>
+    <td style="border-bottom: dashed 2px rgb(134,136,118); padding: 2em; text-align: center;">JavaScript</td>
+    <td style="border: solid 2px rgb(134,136,118); background-color: rgb(245,245,244); padding: 2em; text-align: center;" colspan=4>Node core library</td>
+    <td style="border-bottom: dashed 2px rgb(134,136,118); padding: 0.5em;">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="padding: 2em; text-align: center;" rowspan=2>C / C++</td>
+    <td style="border: solid 2px rgb(134,136,118); padding: 2em; text-align: center;" colspan=4>Node bindings</td>
+  </tr>
+  <tr>
+    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+      <strong>V8</strong>
+    </td>
+    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+      <strong>libuv</strong>
+    </td>
+    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+      <em>OpenSSL<br>zlib<br>http_parser</em>
+    </td>
+  </tr>
+</table>
+
+
+        </section>
+      
+        <section>
+          <h2>libuv and the event loop</h2>
+<!-- <img src="img/eventloop1.gif" width="50%" height="50%"> -->
+<!-- http://nodejsreactions.tumblr.com/post/53202934359/the-event-loop -->
+
+<table style="margin: 20px auto;">
+  <tr>
+    <td colspan=3 style="border-bottom: dashed 2px rgb(134,136,118); padding: 1em; text-align: center;">
+      <strong>JavaScript callbacks</strong>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center; padding: 0.5em;">Timers</td>
+    <td style="text-align: center; padding: 0.5em;">
+      <img src="img/eventloop2.gif" width="244" height="129">
+      <!-- http://nodejsreactions.tumblr.com/post/56979518608/the-node-js-event-loop -->
+    </td>
+    <td style="text-align: center; padding: 0.5em;">Sleep?</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; padding: 0.5em;">Socket I/O</td>
+    <td style="text-align: center; padding: 0.5em;">Filesystem I/O</td>
+    <td style="text-align: center; padding: 0.5em;">OS events</td>
+  </tr>
+</table>
+
+
+        </section>
+      
+
+      </article>
+
+      <footer>
+        <img src="img/nodelogo.png">
+      </footer>
+
+    </div>
+
+    <script src="js/bespoke.min.js"></script>
+    <script src="js/bespoke-hash.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</script>
+</body>

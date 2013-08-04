@@ -1,0 +1,32 @@
+Assertion Testing
+Console
+Debugger
+REPL
+Readline
+
+Child Processes
+VM
+Punycode
+Timers
+Buffer
+TTY
+
+ZLIB
+Crypto
+OS
+Process
+File System
+Path
+Stream
+Events
+Domain
+Cluster
+
+DNS
+HTTP
+HTTPS
+Net
+UDP/Datagram
+Query Strings
+TLS/SSL
+URL
