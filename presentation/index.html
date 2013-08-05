@@ -186,6 +186,47 @@
 
         </section>
       
+        <section>
+          <h2>npm - the Node Package Manager</h2>
+<p><img src="img/npm.png" height="50" width="129" style="margin: 0 auto; display: block;"></p>
+<p>Makes publishing and using packages a breeze</p>
+<p>Minimises dependency and version conflicts</p>
+<p>Ease and simplicity of reuse has encouraged a culture of <strong><em>extreme modularity</em></strong></p>
+
+        </section>
+      
+        <section>
+          <p><img src="img/package-growth-comparison.png" height="223" width="450" style="margin: 50px auto 0 auto; display: block;"></p>
+<p style="font-size: 12px;">Packages per day across popular platforms (source: www.modulecounts.com)</p>
+
+<p style="font-size: 8px;">Chart credit: <a href="http://blog.nodejitsu.com/npm-innovation-through-modularity">http://blog.nodejitsu.com/npm-innovation-through-modularity</a></p>
+
+
+        </section>
+      
+        <section>
+          <div class="highlight"><pre><span class="kd">var</span> <span class="nx">net</span>     <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">sockets</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="kd">var</span> <span class="nx">server</span>  <span class="o">=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">remoteAddress</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">socket</span><span class="p">.</span><span class="nx">remotePort</span>
+  <span class="nx">sockets</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="nx">socket</span>
+  <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">delete</span> <span class="nx">sockets</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="p">})</span>
+  <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">msg</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39;&gt; &#39;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="nx">msg</span><span class="p">(</span><span class="s1">&#39;* &#39;</span> <span class="o">+</span> <span class="nx">id</span> <span class="o">+</span> <span class="s1">&#39; joined the chat&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="kd">function</span> <span class="nx">msg</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">sockets</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sockets</span><span class="p">[</span><span class="nx">p</span><span class="p">].</span><span class="nx">write</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(\r?\n)+/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">1337</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
 
       </article>
 

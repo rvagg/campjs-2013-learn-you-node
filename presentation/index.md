@@ -166,3 +166,45 @@ console.log('Reading file...')
 </table>
 
 <p style="font-size: 8px;">GIF analogy credit: http://nodejsreactions.tumblr.com/post/56979518608/the-node-js-event-loop</p>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## npm - the Node Package Manager
+
+<img src="img/npm.png" height="50" width="129" style="margin: 0 auto; display: block;">
+
+Makes publishing and using packages a breeze
+
+Minimises dependency and version conflicts
+
+Ease and simplicity of reuse has encouraged a culture of ***extreme modularity***
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<img src="img/package-growth-comparison.png" height="223" width="450" style="margin: 50px auto 0 auto; display: block;">
+
+<p style="font-size: 12px;">Packages per day across popular platforms (source: www.modulecounts.com)</p>
+
+<p style="font-size: 8px;">Chart credit: http://blog.nodejitsu.com/npm-innovation-through-modularity</p>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+```js
+var net     = require('net')
+var sockets = {}
+var server  = net.createServer(function (socket) {
+  var id = socket.remoteAddress + ':' + socket.remotePort
+  sockets[id] = socket
+  socket.on('end', function () { delete sockets[id] })
+  socket.on('data', function (data) {
+    msg('<' + id + '> ' + data)
+  })
+  msg('* ' + id + ' joined the chat')
+})
+function msg (msg) {
+  Object.keys(sockets).forEach(function (p) {
+    sockets[p].write(msg.replace(/(\r?\n)+/g, '') + '\n')
+  })
+}
+server.listen(1337)
+```

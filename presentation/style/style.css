@@ -109,7 +109,7 @@ body, section.bespoke-slide {
 }
 
 .highlight {
-  margin: 0 0.5em 1em 0.5em;
+  margin: 0.25em 0.5em 1em 0.5em;
 }
 
 .highlight pre, pre, code {
