@@ -63,6 +63,8 @@ TCP, UDP, HTTP, HTTPS, TLS, SSL, URLs, query strings
 
 Reactionary: callbacks & events everywhere. **Call Me Maybe**.
 
+First-class functions FTW!
+
 ```js
 // callbacks
 fs.readFile('data.txt', function (err, data) {
@@ -76,13 +78,11 @@ server.on('connection', function (stream) {
 })
 ```
 
-First-class functions FTW!
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## Event-driven, non-blocking I/O
 
-**Scalability**: kernel <b><code>epoll</code></b> or <b><code>select</code></b> for socket I/O
+**Scalability**: kernel-level non-blocking socket I/O:<br><b><code>epoll</code></b> or <b><code>select</code></b>
 
 **Concurrent**: worker threads for file I/O
 

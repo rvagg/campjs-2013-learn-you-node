@@ -82,6 +82,7 @@
         <section>
           <h2>Event-driven, non-blocking I/O</h2>
 <p>Reactionary: callbacks &amp; events everywhere. <strong>Call Me Maybe</strong>.</p>
+<p>First-class functions FTW!</p>
 <div class="highlight"><pre><span class="c1">// callbacks</span>
 <span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
@@ -94,13 +95,12 @@
 <span class="p">})</span>
 </pre></div>
 
-<p>First-class functions FTW!</p>
 
         </section>
       
         <section>
           <h2>Event-driven, non-blocking I/O</h2>
-<p><strong>Scalability</strong>: kernel <b><code>epoll</code></b> or <b><code>select</code></b> for socket I/O</p>
+<p><strong>Scalability</strong>: kernel-level non-blocking socket I/O:<br><b><code>epoll</code></b> or <b><code>select</code></b></p>
 <p><strong>Concurrent</strong>: worker threads for file I/O</p>
 <p>JavaScript thread only needs to block for JavaScript!</p>
 <p><em>Unless you tell it otherwise</em></p>
