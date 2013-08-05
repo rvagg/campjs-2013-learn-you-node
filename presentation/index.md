@@ -113,9 +113,6 @@ console.log('Reading file...')
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<!-- Thanks to Bert Belder for the inspiration behind this baby -->
-<!-- http://www.youtube.com/watch?v=nGn60vDSxQ4 -->
-
 <table cellpadding=0 cellspacing=0 style="border-collapse: collapse; margin: 20px auto;">
   <tr>
     <td style="border-bottom: dashed 2px rgb(134,136,118); padding: 2em; text-align: center;">JavaScript</td>
@@ -139,6 +136,8 @@ console.log('Reading file...')
   </tr>
 </table>
 
+<p style="font-size: 8px;">Original version of this table by Bert Belder: http://www.youtube.com/watch?v=nGn60vDSxQ4</p>
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ## libuv and the event loop
@@ -146,7 +145,7 @@ console.log('Reading file...')
 <!-- <img src="img/eventloop1.gif" width="50%" height="50%"> -->
 <!-- http://nodejsreactions.tumblr.com/post/53202934359/the-event-loop -->
 
-<table style="margin: 20px auto;">
+<table style="margin: 0 auto 20px auto;">
   <tr>
     <td colspan=3 style="border-bottom: dashed 2px rgb(134,136,118); padding: 1em; text-align: center;">
       **JavaScript callbacks**
@@ -155,8 +154,7 @@ console.log('Reading file...')
   <tr>
     <td style="text-align: center; padding: 0.5em;">Timers</td>
     <td style="text-align: center; padding: 0.5em;">
-      <img src="img/eventloop2.gif" width="244" height="129">
-      <!-- http://nodejsreactions.tumblr.com/post/56979518608/the-node-js-event-loop -->
+      <img src="img/eventloop2.gif" width="244" height="129" style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); border-radius: 70px;">
     </td>
     <td style="text-align: center; padding: 0.5em;">Sleep?</td>
   </tr>
@@ -166,3 +164,5 @@ console.log('Reading file...')
     <td style="text-align: center; padding: 0.5em;">OS events</td>
   </tr>
 </table>
+
+<p style="font-size: 8px;">GIF analogy credit: http://nodejsreactions.tumblr.com/post/56979518608/the-node-js-event-loop</p>
