@@ -36,6 +36,9 @@
   font-size: 17px;
 }
 
+body {
+  color: #33342d;
+}
 
 body, section.bespoke-slide {
   -webkit-transition: -webkit-transform .33s ease, opacity .33s ease, background-color .33s ease;
@@ -50,6 +53,7 @@ body, section.bespoke-slide {
   xbox-shadow: 0px 0px 5px rgba(140, 200, 75, 0.8);
   background: white;
   border-radius: 0;
+  margin-top: -200px;
 }
 
 .rv header {

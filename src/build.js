@@ -5,7 +5,8 @@ const blorg = require('blorg')
 
 function build () {
   blorg(__dirname, blorg.archetypes.presentation({
-      files: { root: './index.md' }
+      files  : { root: './index.md' }
+    , output : '../index.html'
   }))
 }
 

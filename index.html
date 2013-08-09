@@ -84,8 +84,8 @@
 <p>Reactionary: callbacks &amp; events everywhere. <strong>Call Me Maybe</strong>.</p>
 <p>First-class functions FTW!</p>
 <div class="highlight"><pre><span class="c1">// callbacks</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
 <span class="p">})</span>
 
@@ -111,14 +111,14 @@
           <h2>Event-driven, non-blocking I/O</h2>
 <div class="highlight"><pre><span class="c1">// Synchronous (avoid this)</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Reading file...&#39;</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
 </pre></div>
 
 <div class="highlight"><pre><span class="c1">// Asynchronous (embrace this)</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span> <span class="o">+</span> <span class="s1">&#39; lines&#39;</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Reading file...&#39;</span><span class="p">)</span>
@@ -139,14 +139,14 @@
     <td style="border: solid 2px rgb(134,136,118); padding: 2em; text-align: center;" colspan=4>Node bindings</td>
   </tr>
   <tr>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
       <strong>V8</strong>
     </td>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
       <strong>libuv</strong>
     </td>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
-      <em>OpenSSL<br>zlib<br>http_parser</em>
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
+      <em>OpenSSL<br>zlib<br>http_parser<br>cares</em>
     </td>
   </tr>
 </table>

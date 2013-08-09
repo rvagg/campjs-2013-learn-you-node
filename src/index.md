@@ -67,8 +67,8 @@ First-class functions FTW!
 
 ```js
 // callbacks
-fs.readFile('data.txt', function (err, data) {
-  var lines = data.toString().split('\n').length
+fs.readFile('data.txt', 'utf8', function (err, data) {
+  var lines = data.split('\n').length
   console.log(lines + ' lines')
 })
 
@@ -97,15 +97,15 @@ JavaScript thread only needs to block for JavaScript!
 ```js
 // Synchronous (avoid this)
 console.log('Reading file...')
-var data = fs.readFileSync('data.txt')
-var lines = data.toString().split('\n').length
+var data = fs.readFileSync('data.txt', 'utf8')
+var lines = data.split('\n').length
 console.log(lines + ' lines')
 ```
 
 ```js
 // Asynchronous (embrace this)
-fs.readFile('data.txt', function (err, data) {
-  var lines = data.toString().split('\n').length
+fs.readFile('data.txt', 'utf8', function (err, data) {
+  var lines = data.split('\n').length
   console.log(lines + ' lines')
 })
 console.log('Reading file...')
@@ -124,14 +124,14 @@ console.log('Reading file...')
     <td style="border: solid 2px rgb(134,136,118); padding: 2em; text-align: center;" colspan=4>Node bindings</td>
   </tr>
   <tr>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
       **V8**
     </td>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
       **libuv**
     </td>
-    <td style="border: solid 2px rgb(134,136,118); padding: 2em 1em; text-align: center;">
-      *OpenSSL<br>zlib<br>http_parser*
+    <td style="border: solid 2px rgb(134,136,118); padding: 1em; text-align: center;">
+      *OpenSSL<br>zlib<br>http_parser<br>cares*
     </td>
   </tr>
 </table>
