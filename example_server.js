@@ -18,7 +18,9 @@ var server = net.createServer(function (socket) {
 
 function msg (msg) {
   Object.keys(sockets).forEach(function (peer) {
-    sockets[peer].write(msg.replace(/(\r\n)+/g, '') + '\n')
+    try {
+      sockets[peer].write(msg.replace(/(\r\n)+/g, '') + '\n')
+    } catch (e) {}
   })
 }
 

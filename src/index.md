@@ -203,7 +203,7 @@ var server  = net.createServer(function (socket) {
 })
 function msg (msg) {
   Object.keys(sockets).forEach(function (p) {
-    sockets[p].write(msg.replace(/(\r?\n)+/g, '') + '\n')
+    try { sockets[p].write(msg.replace(/(\r?\n)+/g, '') + '\n') } catch (e) {}
   })
 }
 server.listen(1337)
