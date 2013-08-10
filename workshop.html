@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Learn you</title>
+    <link rel="stylesheet" type="text/css" href="style/markbase.css">
+    <link rel="stylesheet" type="text/css" href="style/markthemes.css">
+    <link rel="stylesheet" type="text/css" href="style/highlight.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <!--
+    <link href='http://fonts.googleapis.com/css?family=Signika+Negative:400,700' rel='stylesheet' type='text/css'>
+    -->
+  </head>
+  <body class="coverflow rv">
+
+    <div id="main">
+      <header>
+        Learn You The Node.js <i>For Much Win</i>
+      </header>
+
+      <article>
+
+      
+        <section>
+          <h2>Learn You The Node.js For Much Win</h2>
+<h2>Workshop</h2>
+<div class="highlight"><pre><span class="c"># Install with:</span>
+<span class="nv">$ </span>sudo npm install learnyounode -g
+<span class="c"># Or:</span>
+<span class="nv">$ </span>curl http://192.168.88.250/learnyounode.tar.gz <span class="se">\</span>
+    | tar zxvf -
+<span class="nv">$ </span><span class="nb">cd </span>learnyounode
+<span class="nv">$ </span>sudo npm link
+<span class="c"># Then:</span>
+<span class="nv">$ </span>learnyounode -v
+<span class="c"># Should print &quot;learnyounode@0.1.0&quot;. Then:</span>
+<span class="nv">$ </span><span class="nb">cd</span>; mkdir learnmenode; <span class="nb">cd </span>learnmenode
+<span class="nv">$ </span>learnyounode
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <p><img src="img/learnyounode.png" style="margin: 32px auto; width: 465px; height: 304px;"></p>
+
+        </section>
+      
+        <section>
+          <h4>HELLO WORLD</h4>
+<div class="highlight"><pre><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;HELLO WORLD&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>BABY STEPS</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="nx">result</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>MY FIRST I/O!</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">contents</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">contents</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span><span class="p">)</span>
+
+<span class="c1">// note you can avoid the .toString() by passing &#39;utf8&#39;</span>
+<span class="c1">// as the second argument to readFileSync, then you&#39;ll</span>
+<span class="c1">// get a String!</span>
+<span class="c1">//</span>
+<span class="c1">// fs.readFileSync(process.argv[2], &#39;utf8&#39;)</span>
+<span class="c1">//   .split(&#39;\n&#39;).length</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>MY FIRST ASYNC I/O!</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">contents</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">contents</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">).</span><span class="nx">length</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">lines</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>FILTERED LS</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;\\.&#39;</span> <span class="o">+</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readdir</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">file</span><span class="p">))</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+<div style="font-size: 12px; margin: 1em;">
+<em>Note: the &#39;\n&#39; above should be &#39;$&#39; but my markdown renderer is having a bad day</em>
+</div>
+
+
+        </section>
+      
+        <section>
+          <h4>MAKE IT MODULAR</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">filterFn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./solution_filter.js&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">dir</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="kd">var</span> <span class="nx">filterStr</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="nx">filterFn</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span> <span class="nx">filterStr</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;There was an error:&#39;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+
+  <span class="nx">list</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>HTTP CLIENT</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>HTTP COLLECT</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">bl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;bl&#39;</span><span class="p">)</span>
+
+<span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">request</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">bl</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+    <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+  <span class="p">}))</span>  
+<span class="p">})</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>JUGGLING ASYNC</h4>
+<style>
+.jsonapiserver + .highlight pre {
+  font-size: 10px !important;
+}
+</style>
+
+<div class="jsonapiserver"></div>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">bl</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;bl&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="kd">function</span> <span class="nx">printResults</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">httpGet</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span> <span class="o">+</span> <span class="nx">index</span><span class="p">],</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">request</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">bl</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="nx">results</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+      <span class="nx">count</span><span class="o">++</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="nx">printResults</span><span class="p">()</span>
+    <span class="p">}))</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">httpGet</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>TIME SERVER</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">net</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nx">zero</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">?</span> <span class="s1">&#39;0&#39;</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">i</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">now</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
+  <span class="k">return</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nx">zero</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span>
+    <span class="o">+</span> <span class="nx">zero</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getDay</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nx">zero</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getHours</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span>
+    <span class="o">+</span> <span class="nx">zero</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">socket</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>HTTP FILE SERVER</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">createReadStream</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8000</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>HTTP UPPERCASERER</h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;through2-map&#39;</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">!=</span> <span class="s1">&#39;POST&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">&#39;send me a POST\n&#39;</span><span class="p">)</span>
+
+  <span class="nx">req</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">chunk</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">toUpperCase</span><span class="p">()</span>
+  <span class="p">})).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8001</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+        <section>
+          <h4>HTTP JSON API SERVER</h4>
+<style>
+.jsonapiserver + .highlight pre {
+  font-size: 9px !important;
+}
+</style>
+
+<div class="jsonapiserver"></div>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nx">parsetime</span> <span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">hour</span><span class="o">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getHours</span><span class="p">(),</span> <span class="nx">minute</span><span class="o">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">(),</span>
+    <span class="nx">second</span><span class="o">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">unixtime</span> <span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">{</span> <span class="nx">unixtime</span> <span class="o">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="p">}</span> <span class="p">}</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">parsedUrl</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">parsedUrl</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">iso</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">result</span>
+  <span class="k">if</span> <span class="p">(</span><span class="sr">/^\/api\/parsetime/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">))</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="nx">parsetime</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="sr">/^\/api\/unixtime/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="p">))</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="nx">unixtime</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span> <span class="p">})</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">))</span>
+  <span class="p">}</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+<span class="p">}).</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8001</span><span class="p">)</span>
+</pre></div>
+
+
+        </section>
+      
+
+      </article>
+
+      <footer>
+        <img src="img/nodelogo.png">
+      </footer>
+
+    </div>
+
+    <script src="js/bespoke.min.js"></script>
+    <script src="js/bespoke-hash.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</script>
+</body>
