@@ -195,7 +195,7 @@ function zero(i) {
 function now () {
   var d = new Date()
   return d.getFullYear() + '-' + zero(d.getMonth()) + '-'
-    + zero(d.getDay()) + ' ' + zero(d.getHours()) + ':'
+    + zero(d.getDate()) + ' ' + zero(d.getHours()) + ':'
     + zero(d.getMinutes())
 }
 
